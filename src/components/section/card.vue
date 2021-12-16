@@ -17,7 +17,21 @@ export default {
 </script>
 
 <style lang='scss' scoped>
+div {
+  padding-bottom: 50px;
+}
+
 img {
-  width: 100%;
+  width: 80%;
+}
+
+h2 {
+  text-transform: uppercase;
+  margin: 30px 0;
+}
+
+p {
+  color: #7c786c;
+  margin-bottom: 5px;
 }
 </style>

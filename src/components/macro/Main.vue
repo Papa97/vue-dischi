@@ -1,7 +1,7 @@
 <template>
   <main>
     <div class="container">
-      <div v-for="(album, index) in albums" :key="index">
+      <div v-for="(album, index) in albums" :key="index" class="song">
         <Card :info="album" />
       </div>
     </div>
@@ -40,10 +40,11 @@ export default {
 main {
   background-color: #1e2d3b;
   height: calc(100vh - 65px);
+  overflow: scroll;
+  overflow-x: hidden;
 }
 
 .container {
-  background-color: red;
   max-width: 1072px;
   margin: 0 auto;
   display: flex;
@@ -51,17 +52,13 @@ main {
   padding-top: 30px;
   justify-content: space-between;
 
-  div {
+  .song {
     padding-top: 20px;
     text-align: center;
     width: calc((100% / 5) - 10px);
-    background-color: cornflowerblue;
+    background-color: #2e3a46;
     color: white;
-
-    h2 {
-      text-transform: uppercase;
-      margin-top: 10px;
-    }
+    margin: 20px 0;
   }
 }
 </style>
