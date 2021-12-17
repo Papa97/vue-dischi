@@ -3,7 +3,7 @@
     <Select @scelta="filtraGenere" />
 
     <div class="container">
-      <div v-for="(album, index) in albums" :key="index" class="song">
+      <div v-for="(album, index) in genereFiltered" :key="index" class="song">
         <Card :info="album" />
       </div>
     </div>
