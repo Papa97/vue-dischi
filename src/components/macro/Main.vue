@@ -23,7 +23,7 @@ export default {
   },
   data() {
     return {
-      albums: null,
+      albums: [],
       sceltaGenere: "",
     };
   },
@@ -46,11 +46,13 @@ export default {
   },
   computed: {
     genereFiltered() {
-      const arrayFiltered = this.albums.filter((elm) => {
-        return elm.genre.includes(this.sceltaGenere);
-      });
-
-      return arrayFiltered;
+      if (this.sceltaGenere == "tutti") {
+        return this.albums;
+      } else {
+        return this.albums.filter((elm) =>
+          elm.genre.includes(this.sceltaGenere)
+        );
+      }
     },
   },
 };

@@ -6,6 +6,7 @@
       v-model="sceltaGenere"
       @change="$emit('scelta', sceltaGenere)"
     >
+      <option value="tutti" selected="selected">Tutti</option>
       <option value="Rock">Rock</option>
       <option value="Pop">Pop</option>
       <option value="Jazz">Jazz</option>
