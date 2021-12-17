@@ -1,5 +1,7 @@
 <template>
   <main>
+    <Select @scelta="filtraGenere" />
+
     <div class="container">
       <div v-for="(album, index) in albums" :key="index" class="song">
         <Card :info="album" />
@@ -11,14 +13,18 @@
 <script>
 import axios from "axios";
 import Card from "../section/card.vue";
+import Select from "../section/Select.vue";
+
 export default {
   name: "Main",
   components: {
     Card,
+    Select,
   },
   data() {
     return {
       albums: null,
+      sceltaGenere: "",
     };
   },
   created() {
@@ -32,6 +38,20 @@ export default {
         // handle error
         console.log(error);
       });
+  },
+  methods: {
+    filtraGenere(payload) {
+      this.sceltaGenere = payload;
+    },
+  },
+  computed: {
+    genereFiltered() {
+      const arrayFiltered = this.albums.filter((elm) => {
+        return elm.genre.includes(this.sceltaGenere);
+      });
+
+      return arrayFiltered;
+    },
   },
 };
 </script>
